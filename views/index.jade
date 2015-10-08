@@ -1,0 +1,39 @@
+doctype html
+html
+	head
+		title #{title}
+		link(rel='stylesheet',href='build/css/styles.css')
+		link.main-stylesheet(rel='stylesheet',href='build/css/pages.css')
+	body.fixed-header
+		div.login-wrapper
+			div.bg-pic
+				img(src='https://images.unsplash.com/photo-1439396087961-98bc12c21176?q=80&fm=jpg&s=bce7579fe32b464cc2d53c5c144a2de4')
+			div.login-container.bg-white
+				div.p-l-50.m-l-20.p-r-50.m-r-20.p-t-50.m-t-30.sm-p-l-15.sm-p-r-15.sm-p-t-40
+					img(src='http://i.imgur.com/9MSvF5T.png',width='78',height='22')
+					p.p-t-35 Sign into your pages account
+					form#form-login.p-t-15(role='form',action='')
+						div.form-group.form-group-default
+							label login
+							div.controls
+								input.form-control(type='text',name='username',required,placeholder='User Name')
+						div.form-group.form-group-default
+							label password
+							div.controls
+								input.form-control(type='password',name='username',required,placeholder='Credentials')
+						div.row
+							div.col-md-6.no-padding
+								div.checkbox
+									input#checkbox1(type='checkbox',value='1')
+									label(for='checkbox1') Keep Me Signed in
+							div.col-md-6.text-right
+								a.text-info.small(href='#') Help? Contact Support
+						button.btn.btn-primary.btn-cons.m-t-10(type='submit') Sign in
+					div.pull-bottom.sm-pull-bottom
+						div.m-b-30.p-r-80.sm-m-t-20.sm-p-r-15.sm-p-b-20.clearfix
+							div.col-sm-3.col-md-2.no-padding
+								img.m-t-5(src='')
+							div.col-sm-9.no-padding.m-t-10
+								p
+									small Create a pages account. If you have a facebook account, log into it for this process. Sign in with
+										a.text-info(href='#')
