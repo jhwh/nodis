@@ -74,7 +74,7 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('assets/scss/theme/**', ['sass']);
+    gulp.watch('assets/scss/**', ['sass']);
     gulp.watch('assets/javascript/**', ['scripts']);
     livereload.listen();
 });
