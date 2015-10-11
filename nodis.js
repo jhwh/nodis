@@ -2,6 +2,7 @@ var express = require('express'),
     path = require('path');
 
 var app = express();
+//var passport = require('./passport');
 
 app.use(express.static(path.join(__dirname, '/')));
 
@@ -10,7 +11,8 @@ app.use(express.static(path.join(__dirname, '/')));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-
+//Passport
+//app.use(passport.initialize());
 
 
 
@@ -20,6 +22,38 @@ app.get('/login',function(req,res,next){
 		title: "Nodis - Login Page"
 	});
 });
+
+app.get('/dashboard',isLoggedIn, function(req,res,next){
+	res.render('dashboard',{
+		title: "Nodis - Dashboard",
+		user: req.user
+	});
+});
+
+app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/login');
+});
+
+//Google authenticaton
+//app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+//app.get('/auth/google/callback',
+//	        passport.authenticate('google', {
+//            successRedirect : '/dashboard',
+//            failureRedirect : '/login'
+//}));
+
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/login');
+}
+
 
 
 //Start Server
