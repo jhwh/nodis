@@ -4,6 +4,7 @@ var express = require('express'),
 var app = express();
 var mongoose = require('mongoose');
 var cors = require('cors');
+var bcrypt = require('bcrypt-nodejs');
 
 //var passport = require('./passport');
 
@@ -20,8 +21,29 @@ app.use(cors());
 
 //mongoose
 mongoose.connect('mongodb://localhost/nodisDB');
-var userSchema = {name: String};
-var user = mongoose.model('user', userSchema, 'users');
+var userSchema = mongoose.Schema({
+	localy : {
+		name : String,
+		password : String,
+	},
+	google : {
+		id : String,
+		token : String,
+		email : String,
+		name : String
+	}
+});
+//var user = mongoose.model('user', userSchema, 'users');
+
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+userSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
+
+var users = mongoose.model('User', userSchema);
 
 //Routes
 app.get('/login',function(req,res,next){
@@ -31,12 +53,12 @@ app.get('/login',function(req,res,next){
 });
 
 app.get('/users',function(req,res){
-	user.find(function(err, doc) {
+	users.find(function(err, doc) {
 		res.send(doc);
 	});
 });
 
-app.get('/dashboard',isLoggedIn, function(req,res,next){
+app.get('/dashboard', function(req,res,next){
 	res.render('dashboard',{
 		title: "Nodis - Dashboard",
 		user: req.user
