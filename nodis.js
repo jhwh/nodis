@@ -2,6 +2,9 @@ var express = require('express'),
     path = require('path');
 
 var app = express();
+var mongoose = require('mongoose');
+var cors = require('cors');
+
 //var passport = require('./passport');
 
 app.use(express.static(path.join(__dirname, '/')));
@@ -10,11 +13,15 @@ app.use(express.static(path.join(__dirname, '/')));
 //Not required because /views is the default folder for jade view-files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.use(cors());
 
 //Passport
 //app.use(passport.initialize());
 
-
+//mongoose
+mongoose.connect('mongodb://localhost/nodisDB');
+var userSchema = {name: String};
+var user = mongoose.model('user', userSchema, 'users');
 
 //Routes
 app.get('/login',function(req,res,next){
@@ -23,11 +30,18 @@ app.get('/login',function(req,res,next){
 	});
 });
 
+app.get('/users',function(req,res){
+	user.find(function(err, doc) {
+		res.send(doc);
+	});
+});
+
 app.get('/dashboard',isLoggedIn, function(req,res,next){
 	res.render('dashboard',{
 		title: "Nodis - Dashboard",
 		user: req.user
 	});
+
 });
 
 app.get('/logout', function(req, res) {
