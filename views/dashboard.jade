@@ -3,5 +3,11 @@ html
   head
     title #{title}
   body
-    h1 Jade - node template engine
-    p You are looged in!
+    .jumbotron.text-center
+    h1
+      span.fa.fa-lock
+      |  Node Authentication
+    p Login or Register with:
+    a.btn.btn-danger(href='/auth/google')
+      span.fa.fa-google-plus
+      |  Google

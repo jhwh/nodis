@@ -5,8 +5,7 @@ var app = express();
 var mongoose = require('mongoose');
 var cors = require('cors');
 var bcrypt = require('bcrypt-nodejs');
-
-//var passport = require('./passport');
+var passport = require('passport');
 
 app.use(express.static(path.join(__dirname, '/')));
 
@@ -21,29 +20,7 @@ app.use(cors());
 
 //mongoose
 mongoose.connect('mongodb://localhost/nodisDB');
-var userSchema = mongoose.Schema({
-	localy : {
-		name : String,
-		password : String,
-	},
-	google : {
-		id : String,
-		token : String,
-		email : String,
-		name : String
-	}
-});
-//var user = mongoose.model('user', userSchema, 'users');
-
-userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-userSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.local.password);
-};
-
-var users = mongoose.model('User', userSchema);
+var users = require('./usermodel.js');
 
 //Routes
 app.get('/login',function(req,res,next){
@@ -71,14 +48,15 @@ app.get('/logout', function(req, res) {
         res.redirect('/login');
 });
 
-//Google authenticaton
-//app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+//Google auth
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
-//app.get('/auth/google/callback',
-//	        passport.authenticate('google', {
-//            successRedirect : '/dashboard',
-//            failureRedirect : '/login'
-//}));
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/profile',
+                    failureRedirect : '/'
+            }));
 
 function isLoggedIn(req, res, next) {
 
