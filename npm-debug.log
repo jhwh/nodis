@@ -1,0 +1,76 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'pamongodb',
+1 verbose cli   '-save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.40
+4 verbose node symlink /usr/bin/node
+5 warn package.json nodis@1.0.0 No repository field.
+6 warn package.json nodis@1.0.0 No README data
+7 warn package.json p@0.2.0 bugs['name'] should probably be bugs['url'].
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'pamongodb', null ]
+10 verbose cache add name=undefined spec="pamongodb" args=["pamongodb",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'pamongodb',
+11 verbose parsed url   path: 'pamongodb',
+11 verbose parsed url   href: 'pamongodb' }
+12 silly lockFile b0e2e7bc-pamongodb pamongodb
+13 verbose lock pamongodb /root/.npm/b0e2e7bc-pamongodb.lock
+14 silly lockFile b0e2e7bc-pamongodb pamongodb
+15 silly lockFile b0e2e7bc-pamongodb pamongodb
+16 verbose addNamed [ 'pamongodb', '' ]
+17 verbose addNamed [ null, '*' ]
+18 silly lockFile 188070c4-pamongodb pamongodb@
+19 verbose lock pamongodb@ /root/.npm/188070c4-pamongodb.lock
+20 silly addNameRange { name: 'pamongodb', range: '*', hasData: false }
+21 verbose request where is /pamongodb
+22 verbose request registry https://registry.npmjs.org/
+23 verbose request id 3d6434078082603f
+24 verbose url raw /pamongodb
+25 verbose url resolving [ 'https://registry.npmjs.org/', './pamongodb' ]
+26 verbose url resolved https://registry.npmjs.org/pamongodb
+27 verbose request where is https://registry.npmjs.org/pamongodb
+28 info trying registry request attempt 1 at 21:14:43
+29 http GET https://registry.npmjs.org/pamongodb
+30 http 404 https://registry.npmjs.org/pamongodb
+31 silly registry.get cb [ 404,
+31 silly registry.get   { 'content-type': 'application/json',
+31 silly registry.get     'cache-control': 'max-age=0',
+31 silly registry.get     'content-length': '2',
+31 silly registry.get     'accept-ranges': 'bytes',
+31 silly registry.get     date: 'Wed, 14 Oct 2015 19:14:49 GMT',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     age: '0',
+31 silly registry.get     connection: 'keep-alive',
+31 silly registry.get     'x-served-by': 'cache-fra1246-FRA',
+31 silly registry.get     'x-cache': 'MISS',
+31 silly registry.get     'x-cache-hits': '0',
+31 silly registry.get     'x-timer': 'S1444850089.455872,VS0,VE227' } ]
+32 silly lockFile 188070c4-pamongodb pamongodb@
+33 silly lockFile 188070c4-pamongodb pamongodb@
+34 error 404 Not Found
+34 error 404
+34 error 404 'pamongodb' is not in the npm registry.
+34 error 404 You should bug the author to publish it
+34 error 404 It was specified as a dependency of 'nodis'
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, or http url, or git url.
+35 error System Linux 3.19.0-30-generic
+36 error command "/usr/bin/node" "/usr/bin/npm" "install" "pamongodb" "-save-dev"
+37 error cwd /home/maciej/Pulpit/nodis
+38 error node -v v0.10.40
+39 error npm -v 1.4.28
+40 error code E404
+41 verbose exit [ 1, true ]
