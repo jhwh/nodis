@@ -16,7 +16,9 @@
   "devDependencies": {
     "bcrypt-nodejs": "0.0.3",
     "bootstrap": "^3.3.5",
+    "cookie-parser": "^1.4.0",
     "cors": "^2.7.1",
+    "express-session": "^1.11.3",
     "googleapis": "^2.1.5",
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.2.0",

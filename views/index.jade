@@ -16,18 +16,18 @@ html
 						div.form-group.form-group-default
 							label login
 							div.controls
-								input.form-control(type='text',name='username',required,placeholder='User Name')
+								input.form-control(type='text',name='username', disabled='disabled' ,required,placeholder='User Name')
 						div.form-group.form-group-default
 							label password
 							div.controls
-								input.form-control(type='password',name='username',required,placeholder='Credentials')
+								input.form-control(type='password',name='username',required,disabled='disabled' ,placeholder='Credentials')
 						div.row
 							div.col-md-6.no-padding
 								div.checkbox
 									input#checkbox1(type='checkbox',value='1')
 									label(for='checkbox1') Keep Me Signed in
 							div.col-md-6.text-right
-								a.text-info.small(href='#') Help? Contact Support
+								a.text-info.small(href='/google/auth') Help? Contact Support
 						button.btn.btn-primary.btn-cons.m-t-10(type='submit') Sign in
 					div.pull-bottom.sm-pull-bottom
 						div.m-b-30.p-r-80.sm-m-t-20.sm-p-r-15.sm-p-b-20.clearfix
