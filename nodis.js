@@ -35,12 +35,15 @@ var users = require('./usermodel.js');
 
 //Routes
 app.get('/login',function(req,res){
-	res.render('index',{
-		title: "Nodis - Login Page"
-	});
+	if(req.isAuthenticated()) {res.redirect('./dashboard');}
+	else {
+		res.render('index',{
+			title: "Nodis - Login Page"
+		});
+	}
 });
 
-app.get('/login', passport.authenticate('google'), function(req,res,next){
+app.get('/login', passport.authenticate('google'), isLoggedIn, function(req,res,next){
 
 });
 
