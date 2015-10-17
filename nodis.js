@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var passport = require('passport');
 var passportGoogle = require('./passport.js');
+var calendar = require('./calendar.js');
 
 app.use(express.static(path.join(__dirname, '/')));
 
@@ -32,7 +33,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./passport.js')(app, passport);
-require('./getuser.js');
 
 //mongoose
 mongoose.connect('mongodb://localhost/nodisDB');
@@ -62,7 +62,8 @@ app.get('/users',function(req,res){
 app.get('/dashboard', isLoggedIn, function(req,res,next){
 	res.render('dashboard',{
 		title: "Nodis - Dashboard",
-		user: req.user
+		user: req.user,
+		zmienna: calendar
 	});
 
 });
