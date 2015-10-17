@@ -21,13 +21,18 @@ app.set('view engine', 'jade');
 app.use(cors());
 
 //Passport
-app.use(expressSession({ secret: process.env.SESSION_SECRET || 'secret', resave: false, saveUninitialized: false }));
+app.use(expressSession({ 
+	secret: process.env.SESSION_SECRET || 'secret', 
+	resave: false, 
+	saveUninitialized: false,
+	expires : new Date(Date.now() + 600000) })); //10 minute session
 app.use(cookieParser());
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 require('./passport.js')(app, passport);
+require('./getuser.js');
 
 //mongoose
 mongoose.connect('mongodb://localhost/nodisDB');
@@ -48,6 +53,7 @@ app.get('/login', passport.authenticate('google'), isLoggedIn, function(req,res,
 });
 
 app.get('/users',function(req,res){
+	var users = users.collection('users')
 	users.find(function(err, doc) {
 		res.send(doc);
 	});

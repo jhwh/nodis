@@ -2,12 +2,14 @@ doctype html
 html
   head
     title #{title}
+    link(rel='stylesheet',href='build/css/styles.css')
+    link.main-stylesheet(rel='stylesheet',href='build/css/pages.css')
   body
     .jumbotron.text-center
-    h1
-      span.fa.fa-lock
-      |  Node Authentication
-    p Login or Register with:
-    a.btn.btn-danger(href='/auth/google')
-      span.fa.fa-google-plus
-      |  Google
+      h1
+        span.fa.fa-lock
+        |  Node Authentication
+        p 
+          | You are looged as 
+          b #{user.google.name}
+      button.btn.btn-primary.btn-cons.m-t-10(onclick="location.href='/logout';", type='submit') Log out
