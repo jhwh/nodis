@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
+  
     "font-awesome": "~4.4.0",
     "jquery.scrollbar": "~0.2.8",
     "jquery-ui": "~1.11.4",

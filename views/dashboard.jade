@@ -1,15 +1,334 @@
 doctype html
+doctype html
 html
   head
-    title #{title}
+    meta(http-equiv='content-type', content='text/html;charset=UTF-8')
+    meta(charset='utf-8')
+    title Pages - Admin Dashboard UI Kit
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     link(rel='stylesheet',href='build/css/styles.css')
     link.main-stylesheet(rel='stylesheet',href='build/css/pages.css')
-  body
-    .jumbotron.text-center
-      h1
-        span.fa.fa-lock
-        |  Node Authentication
-        p 
-          | You are looged as 
-          b #{user.google.name}
-      button.btn.btn-primary.btn-cons.m-t-10(onclick="location.href='/logout';", type='submit') Log out
+    //if lte IE 9
+      link(href='pages/css/ie9.css', rel='stylesheet', type='text/css')
+    script(type='text/javascript').
+      window.onload = function()
+      {
+      // fix for windows 8
+      if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
+      document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
+      }
+  body.fixed-header
+    // BEGIN SIDEBPANEL
+    nav.page-sidebar(data-pages='sidebar')
+      // BEGIN SIDEBAR MENU TOP TRAY CONTENT
+      #appMenu.sidebar-overlay-slide.from-top
+        .row
+          .col-xs-6.no-padding
+            a.p-l-40(href='#')
+              img(src='assets/img/demo/social_app.svg', alt='socail')
+          .col-xs-6.no-padding
+            a.p-l-10(href='#')
+              img(src='assets/img/demo/email_app.svg', alt='socail')
+        .row
+          .col-xs-6.m-t-20.no-padding
+            a.p-l-40(href='#')
+              img(src='assets/img/demo/calendar_app.svg', alt='socail')
+          .col-xs-6.m-t-20.no-padding
+            a.p-l-10(href='#')
+              img(src='assets/img/demo/add_more.svg', alt='socail')
+      // END SIDEBAR MENU TOP TRAY CONTENT
+      // BEGIN SIDEBAR MENU HEADER
+      .sidebar-header
+        img.brand(src='http://i.imgur.com/9MSvF5T.png', alt='logo', data-src='assets/img/logo_white.png', data-src-retina='assets/img/logo_white_2x.png', width='78', height='22')
+        .sidebar-header-controls
+          button.btn.btn-xs.sidebar-slide-toggle.btn-link.m-l-20(type='button', data-pages-toggle='#appMenu')
+            i.fa.fa-angle-down.fs-16
+          button.btn.btn-link.visible-lg-inline(type='button', data-toggle-pin='sidebar')
+            i.fa.fs-12
+      // END SIDEBAR MENU HEADER
+      // START SIDEBAR MENU
+      .sidebar-menu
+        // BEGIN SIDEBAR MENU ITEMS
+        ul.menu-items
+          li.m-t-30
+            a.detailed(href='index.html')
+              span.title Dashboard
+              span.details 12 New Updates
+            span.icon-thumbnail.bg-success
+              i.pg-home
+          li
+            a.detailed(href='email.html')
+              span.title Email
+              span.details 234 New Emails
+            span.icon-thumbnail
+              i.pg-mail
+          li
+            a(href='social.html')
+              span.title Social
+            span.icon-thumbnail
+              i.pg-social
+          li
+            a(href='calendar.html')
+              span.title Calendar
+            span.icon-thumbnail
+              i.pg-calender
+          li
+            a(href='builder.html')
+              span.title Builder
+            span.icon-thumbnail
+              i.pg-layouts
+          li
+            a(href='javascript:;')
+              span.title UI Elements
+              span.arrow
+            span.icon-thumbnail Ui
+            ul.sub-menu
+              li
+                a(href='color.html') Color
+                span.icon-thumbnail c
+              li
+                a(href='typography.html') Typography
+                span.icon-thumbnail t
+              li
+                a(href='icons.html') Icons
+                span.icon-thumbnail i
+              li
+                a(href='buttons.html') Buttons
+                span.icon-thumbnail b
+              li
+                a(href='notifications.html') Notifications
+                span.icon-thumbnail n
+              li
+                a(href='modals.html') Modals
+                span.icon-thumbnail m
+              li
+                a(href='progress.html') Progress & Activity
+                span.icon-thumbnail pa
+              li
+                a(href='tabs_accordian.html') Tabs & Accordions
+                span.icon-thumbnail ta
+              li
+                a(href='sliders.html') Sliders
+                span.icon-thumbnail s
+              li
+                a(href='tree_view.html') Tree View
+                span.icon-thumbnail tv
+              li
+                a(href='nestables.html') Nestable
+                span.icon-thumbnail ns
+          li
+            a(href='javascript:;')
+              span.title Forms
+              span.arrow
+            span.icon-thumbnail
+              i.pg-form
+            ul.sub-menu
+              li
+                a(href='form_elements.html') Form Elements
+                span.icon-thumbnail fe
+              li
+                a(href='form_layouts.html') Form Layouts
+                span.icon-thumbnail fl
+              li
+                a(href='form_wizard.html') Form Wizard
+                span.icon-thumbnail fw
+          li
+            a(href='portlets.html')
+              span.title Portlets
+            span.icon-thumbnail
+              i.pg-grid
+          li
+            a(href='javascript:;')
+              span.title Tables
+              span.arrow
+            span.icon-thumbnail
+              i.pg-tables
+            ul.sub-menu
+              li
+                a(href='tables.html') Basic Tables
+                span.icon-thumbnail bt
+              li
+                a(href='datatables.html') Data Tables
+                span.icon-thumbnail dt
+          li
+            a(href='javascript:;')
+              span.title Maps
+              span.arrow
+            span.icon-thumbnail
+              i.pg-map
+            ul.sub-menu
+              li
+                a(href='google_map.html') Google Maps
+                span.icon-thumbnail gm
+              li
+                a(href='vector_map.html') Vector Maps
+                span.icon-thumbnail vm
+          li
+            a(href='charts.html')
+              span.title Charts
+            span.icon-thumbnail
+              i.pg-charts
+          li.active.open
+            a(href='javascript:;')
+              span.title Extra
+              span.active.open.arrow
+            span.icon-thumbnail
+              i.pg-bag
+            ul.sub-menu
+              li
+                a(href='invoice.html') Invoice
+                span.icon-thumbnail in
+              li
+                a(href='404.html') 404 Page
+                span.icon-thumbnail pg
+              li
+                a(href='500.html') 500 Page
+                span.icon-thumbnail pg
+              li.active
+                a(href='blank_template.html') Blank Page
+                span.icon-thumbnail bp
+              li
+                a(href='login.html') Login
+                span.icon-thumbnail l
+              li
+                a(href='register.html') Register
+                span.icon-thumbnail re
+              li
+                a(href='lock_screen.html') Lockscreen
+                span.icon-thumbnail ls
+              li
+                a(href='gallery.html') Gallery
+                span.icon-thumbnail gl
+              li
+                a(href='timeline.html') Timeline
+                span.icon-thumbnail t
+          li
+            a(href='javascript:;')
+              span.title Menu Levels
+              span.arrow
+            span.icon-thumbnail
+              i.pg-menu_lv
+            ul.sub-menu
+              li
+                a(href='javascript:;') Level 1
+                span.icon-thumbnail L1
+              li
+                a(href='javascript:;')
+                  span.title Level 2
+                  span.arrow
+                span.icon-thumbnail L2
+                ul.sub-menu
+                  li
+                    a(href='javascript:;') Sub Menu
+                    span.icon-thumbnail Sm
+                  li
+                    a(href='ujavascript:;') Sub Menu
+                    span.icon-thumbnail Sm
+        .clearfix
+      // END SIDEBAR MENU
+    // END SIDEBAR
+    // END SIDEBPANEL
+    // START PAGE-CONTAINER
+    .page-container
+      // START HEADER
+      .header
+        // START MOBILE CONTROLS
+        // LEFT SIDE
+        .pull-left.full-height.visible-sm.visible-xs
+          // START ACTION BAR
+          .sm-action-bar
+            a.btn-link.toggle-sidebar(href='#', data-toggle='sidebar')
+              span.icon-set.menu-hambuger
+          // END ACTION BAR
+        // RIGHT SIDE
+        .pull-right.full-height.visible-sm.visible-xs
+          // START ACTION BAR
+          .sm-action-bar
+            a.btn-link(href='#', data-toggle='quickview', data-toggle-element='#quickview')
+              span.icon-set.menu-hambuger-plus
+          // END ACTION BAR
+        // END MOBILE CONTROLS
+        .pull-left.sm-table
+          .header-inner
+            .brand.inline
+              img(src='assets/img/logo.png', alt='logo', data-src='assets/img/logo.png', data-src-retina='assets/img/logo_2x.png', width='78', height='22')
+            // START NOTIFICATION LIST
+            // END NOTIFICATIONS LIST
+            a.search-link(href='#', data-toggle='search')
+        .pull-right
+          .header-inner
+            a.btn-link.icon-set.menu-hambuger-plus.m-l-20.sm-no-margin.hidden-sm.hidden-xs(href='#', data-toggle='quickview', data-toggle-element='#quickview')
+        .pull-right
+          // START User Info
+          .visible-lg.visible-md.m-t-10
+            .pull-left.p-r-10.p-t-10.fs-16.font-heading
+              span.semi-bold David
+              span.text-master Nest
+            .dropdown.pull-right
+              button.profile-dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.thumbnail-wrapper.d32.circular.inline.m-t-5
+                  img(src='assets/img/profiles/avatar.jpg', alt='', data-src='assets/img/profiles/avatar.jpg', data-src-retina='assets/img/profiles/avatar_small2x.jpg', width='32', height='32')
+              ul.dropdown-menu.profile-dropdown(role='menu')
+                li
+                  a(href='#')
+                    i.pg-settings_small
+                    |  Settings
+                li
+                  a(href='#')
+                    i.pg-outdent
+                    |  Feedback
+                li
+                  a(href='#')
+                    i.pg-signals
+                    |  Help
+                li.bg-master-lighter
+                  a.clearfix(href='#')
+                    span.pull-left Logout
+                    span.pull-right
+                      i.pg-power
+          // END User Info
+      // END HEADER
+      // START PAGE CONTENT WRAPPER
+      .page-content-wrapper
+        // START PAGE CONTENT
+        .content
+          // START JUMBOTRON
+          .jumbotron(data-pages='parallax')
+            .container-fluid.container-fixed-lg.sm-p-l-20.sm-p-r-20
+              .inner
+                // START BREADCRUMB
+                ul.breadcrumb
+                  li
+                    a(href='#') Extras
+                  li
+                    a.active(href='#') Blank template
+                // END BREADCRUMB
+          // END JUMBOTRON
+        // END PAGE CONTENT
+        // START COPYRIGHT
+        // START CONTAINER FLUID
+        .container-fluid.container-fixed-lg.footer
+          .copyright.sm-text-center
+            p.small.no-margin.pull-left.sm-pull-reset
+              span.hint-text Copyright © 2014 
+              span.font-montserrat REVOX
+              | .
+              span.hint-text All rights reserved. 
+              span.sm-block
+                a.m-l-10.m-r-10(href='#') Terms of use
+                |  
+                a.m-l-10(href='#') Privacy Policy
+            p.small.no-margin.pull-right.sm-pull-reset
+              a(href='#') Hand-crafted
+              span.hint-text & Made with Love ®
+            .clearfix
+        // END COPYRIGHT
+      // END PAGE CONTENT WRAPPER
+    
+    
+    
+    script(src='build/javascript/alljs')
+    // END CORE TEMPLATE JS
+    // BEGIN PAGE LEVEL JS
+    script(src='assets/js/scripts.js', type='text/javascript')
+    // END PAGE LEVEL JS
