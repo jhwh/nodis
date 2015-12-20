@@ -11,7 +11,7 @@ var concatCss = require('gulp-concat-css');
 var imageop = require('gulp-image-optimization');
 
 var config = {
-    bowerDir: 'bower_components'
+    bowerDir: './bower_components'
 }
 
 gulp.task('sass', function() {

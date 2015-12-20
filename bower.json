@@ -14,10 +14,10 @@
     "tests"
   ],
   "dependencies": {
-  
     "font-awesome": "~4.4.0",
     "jquery.scrollbar": "~0.2.8",
     "jquery-ui": "~1.11.4",
-    "select2-bootstrap-css": "~1.4.6"
+    "select2-bootstrap-css": "~1.4.6",
+    "bootstrap-sass": "~3.3.6"
   }
 }
